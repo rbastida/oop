@@ -1,4 +1,5 @@
 <?php
+require_once './produto.php';
 
 class Tenis extends Produto {
     
