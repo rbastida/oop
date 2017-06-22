@@ -1,57 +1,6 @@
-<html>
-<head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-<!-- Bootstrap -->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<title></title>
-
-</head>
-<body>
-
 <?php
-
-function orderna_array($ordem, $dados) {
-    
-    if ($ordem == 'crescente') {    
-        $ordem_array = SORT_ASC;
-    } else {
-        $ordem_array = SORT_DESC;
-    }
-    
-    $lista = array(); 
-
-    foreach ($dados as $dado) {
-        $lista[] = $dado['id'];    
-    }
-
-    array_multisort($lista, $ordem_array, $dados);    
-    
-    return ($dados);
-    
-}
+require_once './i_bootstrap.php';
+// require_once './Cliente.php';
 
 $dados = array (
     
@@ -156,113 +105,35 @@ $dados = array (
     
 );
 
-
-$indice     = $_GET['indice'];
-
-if (isset($ordem)) {
+if (isset($_GET['ordem'])) {
+    
     $ordem = $_GET['ordem'];
     $dados = orderna_array($ordem, $dados);
+    
 }
 
 if (isset($indice)) {
-    
-    $indice     = $_GET['indice'];
-    
-    $id         = $dados[$indice]['id'];
-    $nome       = $dados[$indice]['nome'];
-    $cpf        = $dados[$indice]['cpf'];
-    $idade      = $dados[$indice]['idade'];          
-    $endereco   = $dados[$indice]['endereco'];
-    $telefone   = $dados[$indice]['telefone'];
-    
-    
-//    echo '<h4>dados</h4><br>';
-//    echo '<h4>id='.$id.'</h4><br>';
-//    echo '<h4>nome='.$nome.'</h4><br>';
-//    echo '<h4>cpf='.$cpf.'</h4><br>';
-//    echo '<h4>idade='.$idade.'</h4><br>';
-//    echo '<h4>endereco='.$endereco.'</h4><br>';
-//    echo '<h4>telefone='.$telefone.'</h4><br>';
-    
-    
-    ?>
-
-
-<div class="container">
-
-    <h2>Dados do Cliente</h2>    
-
-    <div class="col-md-12">
-    <table class="table table-striped table-condensed">
-        <thead>
-            <tr>
-                <th>Id</th>              
-                <th>CPF</th>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Endereco</th>
-                <th>Telefone</th>
-            </tr>
-        </thead>
-        <tbody>    
-            <tr>
-                <td><?php echo $id; ?></a></td>
-                <td><?php echo $cpf; ?></td>                                        
-                <td><?php echo $nome; ?></a></td>
-                <td><?php echo $idade; ?></td>                    
-                <td><?php echo $endereco; ?></td>                                        
-                <td><?php echo $telefone; ?></td>     
-            </tr>
-        </tbody>
-    </table> 
-    </div>
-</div>    
-    
-    <?php
-    
-    exit();
+    showPessoa($dados);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//print_r($dados);
-
-//var_dump($dados);
-
 
 ?>
     
 <div class="container">
-
-    <h2>Clientes</h2>    
-
+    <h2>Clientes</h2>  
     <div class="col-md-12">
     <table class="table table-striped table-condensed">
         <thead>
             <tr>
-                <th><a href="listagem.php?ordem=crescente"><span class="glyphicon glyphicon-arrow-Up"></span></a>
-                    Id
+                <th><a href="listagem.php?ordem=crescente"><span class="glyphicon glyphicon-arrow-Up"></span></a>Id
                 <a href="listagem.php?ordem=decrescente"><span class="glyphicon glyphicon-arrow-down"></span></a></th>
-              
                 <th>CPF</th>
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Endereco</th>
                 <th>Telefone</th>
-<!--                <th>Opcoes</th>-->
             </tr>
         </thead>
-        <tbody>
-            
+        <tbody>            
             <?php            
             for ($x=0; $x<=10; $x++) {
             ?>
@@ -286,7 +157,71 @@ if (isset($indice)) {
     </table>    
     </div>
 </div>
-
-
 </body>
 </html>
+
+<?php
+
+function orderna_array($ordem, $dados) {
+    
+    if ($ordem == 'crescente') {    
+        $ordem_array = SORT_ASC;
+    } else {
+        $ordem_array = SORT_DESC;
+    }
+    
+    $lista = array(); 
+
+    foreach ($dados as $dado) {
+        $lista[] = $dado['id'];    
+    }
+
+    array_multisort($lista, $ordem_array, $dados);    
+    
+    return ($dados);
+}
+
+function showPessoa($dados) {
+
+    $indice     = $_GET['indice'];
+
+    $id         = $dados[$indice]['id'];
+    $nome       = $dados[$indice]['nome'];
+    $cpf        = $dados[$indice]['cpf'];
+    $idade      = $dados[$indice]['idade'];          
+    $endereco   = $dados[$indice]['endereco'];
+    $telefone   = $dados[$indice]['telefone'];
+    ?>
+
+    <div class="container">
+        <h2>Dados do Cliente</h2>    
+        <div class="col-md-12">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Id</th>              
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Endereco</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>    
+                <tr>
+                    <td><?php echo $id; ?></a></td>
+                    <td><?php echo $cpf; ?></td>                                        
+                    <td><?php echo $nome; ?></a></td>
+                    <td><?php echo $idade; ?></td>                    
+                    <td><?php echo $endereco; ?></td>                                        
+                    <td><?php echo $telefone; ?></td>     
+                </tr>
+            </tbody>
+        </table> 
+        </div>
+    </div>    
+
+<?php
+}
+
+?>
