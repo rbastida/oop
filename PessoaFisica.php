@@ -1,20 +1,12 @@
 <?php
 
 
-class PessoaFisica extends Cliente implements ClienteInterface {
+class PessoaFisica extends Cliente implements GrauImportanciaInterface  {
     
-    function __construct() {
-        
-    }
+    function __construct();
     
-    public function getGrauCliente() {
-        
-    }
+    public function setGrauImportancia($grau);
     
-    public function getCPF() {
-        
-    }
-    
-    
+    public function getGrauImportancia();
     
 }

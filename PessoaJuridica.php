@@ -1,18 +1,12 @@
 <?php
 
 
-class PessoaJuridica extends Cliente implements ClienteInterface {
+class PessoaJuridica extends Cliente implements GrauImportanciaInterface {
     
-    function __construct() {
-        
-    }
+    function __construct();
     
-    public function getGrauCliente() {
-        
-    }
+    public function setGrauImportancia($grau);
     
-    public function getCNPJ() {
-        
-    }
+    public function getGrauImportancia();
     
 }

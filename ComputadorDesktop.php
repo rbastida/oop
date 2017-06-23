@@ -1,23 +1,21 @@
 <?php
-
+require_once './ComputadorInterface.php';
 
 class ComputadorDesktop implements ComputadorInterface {
-
     
-    public function getTamanho() {
-        
-    }
-
-
     public function getCor() {
         
     }
-
+    
     public function getPeso() {
         
     }
-
+    
     public function getTela() {
+        
+    }
+    
+    public function getTamanho() {
         
     }
     

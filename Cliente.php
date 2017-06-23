@@ -2,13 +2,13 @@
 
 class Cliente {
 
-    public $cpf;
-    public $cnpj;
-    public $nome;
-    public $idade;
-    public $endereco;
-    public $telefone;
-    public $grau;
+    private $cpf;
+    private $cnpj;
+    private $nome;
+    private $idade;
+    private $endereco;
+    private $telefone;
+    private $grau;
     
     function getCpf() {
         return $this->cpf;
@@ -32,10 +32,6 @@ class Cliente {
 
     function getTelefone() {
         return $this->telefone;
-    }
-
-    function getGrau() {
-        return $this->grau;
     }
 
     function setCpf($cpf) {
@@ -68,14 +64,4 @@ class Cliente {
         return $this;
     }
 
-    function setGrau($grau) {
-        $this->grau = $grau;
-        return $this;
-    }
-
-    
 }
-
-
-
-

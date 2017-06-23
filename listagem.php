@@ -105,6 +105,13 @@ $dados = array (
     
 );
 
+if (isset($_GET['indice'])) {
+    
+    $indice = $_GET['indice'];
+    showPessoa($dados, $indice);
+    exit();
+} 
+
 if (isset($_GET['ordem'])) {
     
     $ordem = $_GET['ordem'];
@@ -112,9 +119,7 @@ if (isset($_GET['ordem'])) {
     
 }
 
-if (isset($indice)) {
-    showPessoa($dados);
-}
+
 
 ?>
     
@@ -140,7 +145,7 @@ if (isset($indice)) {
                 <tr>
                     <td><?php echo $dados[$x]['id']; ?></a></td>
                     <td><?php echo $dados[$x]['cpf']; ?></td>                                        
-                    <td><a href="listagem.php?indice=<?php echo $x; ?>"><?php echo $dados[$x]['nome']; ?></a></td>
+                    <td><a href="listagem.php?indice=<?php echo $dados[$x]['id']-1; ?>"><?php echo $dados[$x]['nome']; ?></a></td>
                     <td><?php echo $dados[$x]['idade']; ?></td>                    
                     <td><?php echo $dados[$x]['endereco']; ?></td>                                        
                     <td><?php echo $dados[$x]['telefone']; ?></td>                                        
@@ -181,9 +186,7 @@ function orderna_array($ordem, $dados) {
     return ($dados);
 }
 
-function showPessoa($dados) {
-
-    $indice     = $_GET['indice'];
+function showPessoa($dados, $indice) {
 
     $id         = $dados[$indice]['id'];
     $nome       = $dados[$indice]['nome'];
@@ -193,6 +196,7 @@ function showPessoa($dados) {
     $telefone   = $dados[$indice]['telefone'];
     ?>
 
+    <form name="voltar" action="listagem.php" method="POST">
     <div class="container">
         <h2>Dados do Cliente</h2>    
         <div class="col-md-12">
@@ -219,9 +223,10 @@ function showPessoa($dados) {
             </tbody>
         </table> 
         </div>
+        <button type="submit" class="btn btn-primary">Voltar</button>
     </div>    
-
+    </form>
+    
 <?php
 }
-
 ?>
