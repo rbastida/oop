@@ -6,7 +6,6 @@ class Cliente {
     private $cnpj;
     private $nome;
     private $idade;
-    private $endereco;
     private $telefone;
     private $grau;
     
@@ -24,10 +23,6 @@ class Cliente {
 
     function getIdade() {
         return $this->idade;
-    }
-
-    function getEndereco() {
-        return $this->endereco;
     }
 
     function getTelefone() {
@@ -51,11 +46,6 @@ class Cliente {
 
     function setIdade($idade) {
         $this->idade = $idade;
-        return $this;
-    }
-
-    function setEndereco($endereco) {
-        $this->endereco = $endereco;
         return $this;
     }
 
