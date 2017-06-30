@@ -7,7 +7,7 @@ require_once './ClientePJ.php';
 require_once './DadosClientes.php';
 
 
-$dados = DadosClientes::$clientes;
+$dados = DadosClientes::getClientes();
 
 print_r($dados);
 

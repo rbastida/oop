@@ -1,8 +1,11 @@
 <?php
+require_once './Cliente.php';
+require_once './ClientePF.php';
+require_once './ClientePJ.php';
 
 class DadosClientes {
 
-    private static $clientes = array();
+    public static $clientes = array();
 
     public function __construct() {
 
@@ -21,5 +24,20 @@ class DadosClientes {
         );
 
     }   
+    
+    public function getClientes($order = 'ASC') {
+        
+        if($order == 'DESC') {
+            
+            $ordem_array = SORT_DESC;
+            
+            $lista = array(); 
+            array_multisort(self::$clientes, $ordem_array, $lista);    
+            return ($lista);  
+        }
+   
+        return (self::$clientes);
+     
+    }
     
 }
