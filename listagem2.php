@@ -1,106 +1,119 @@
 <?php
 require_once './i_bootstrap.php';
-// require_once './Cliente.php';
+require_once './Interfaces/EnderecoCobrancaInterface.php';
+require_once './Interfaces/GrauImportanciaInterface.php';
+require_once './Cliente.php';
 
 $dados = array (
     
-    '0' => array (   
-    'id'  => '1',        
-    'cpf'  => '15004023405',
-    'nome' => 'Wesley',
-    'idade' => '23',
+    '0'        => array (   
+    'id'       => '1',        
+    'cpf'      => '15004023405',
+    'nome'     => 'Wesley',
+    'idade'    => '23',
     'endereco' => 'anchieta 200',
-    'telefone' => '1997605432'
+    'telefone' => '1997605432',
+    'tipo'     => 'fisica',
+    'grau'     => '3'
     ),
     
-    '1' => array (    
-    'id'  => '2',        
-    'cpf'  => '12004323405',
-    'nome' => 'Ricardo',
-    'idade' => '33',
+    '1'        => array (    
+    'id'       => '2',        
+    'cnpj'     => '22288882222',
+    'nome'     => 'Ricardo',
+    'idade'    => '33',
     'endereco' => 'anchieta 42',
-    'telefone' => '1998731234'
+    'telefone' => '1998731234',
+    'tipo'     => 'juridica',
+    'grau'     => '2'
     ),
 
-    '2' => array (    
-    'id'  => '3',                
-    'cpf'  => '16004323405',
-    'nome' => 'Anderson',
-    'idade' => '19',
+    '2'        => array (    
+    'id'       => '3',                
+    'cnpj'     => '22288882222',
+    'nome'     => 'Anderson',
+    'idade'    => '19',
     'endereco' => 'afonso marcondes 132',
-    'telefone' => '11772222'
+    'telefone' => '11772222',
+    'tipo'     => 'juridica',
+    'grau'     => '8'
     ),
-
-    '3' => array (    
-    'id'  => '4',         
-    'cpf'  => '15004023405',
-    'nome' => 'Silva',
-    'idade' => '20',
+    
+    '3'        => array (    
+    'id'       => '4',                
+    'cnpj'     => '1444223405',
+    'nome'     => 'Silva',
+    'idade'    => '20',
     'endereco' => 'rua teste 157',
-    'telefone' => '1177662211'
+    'telefone' => '11772222',
+    'tipo'     => 'juridica',
+    'grau'     => '6'    
+    ),
+    
+    '4'        => array (    
+    'id'       => '5',                
+    'cnpj'     => '1238980333',
+    'nome'     => 'Teste da Silva',
+    'idade'    => '32',
+    'endereco' => 'rua angelo guimaraes 157',
+    'telefone' => '1197348989',
+    'tipo'     => 'fisica',
+    'grau'     => '4'    
     ),
 
-    '4' => array (    
-    'id'  => '5',         
-    'cpf'  => '1444223405',
-    'nome' => 'Marcos',
-    'idade' => '21',
-    'endereco' => 'rua teste 156',
-    'telefone' => '1177664423'
+    '5'        => array (    
+    'id'       => '6',                
+    'cnpj'     => '33222222',
+    'nome'     => 'Georgina',
+    'idade'    => '22',
+    'endereco' => 'rua oitava 127',
+    'telefone' => '11772222',
+    'tipo'     => 'juridica',
+    'grau'     => '6'    
+    ),   
+    
+    '6'        => array (    
+    'id'       => '7',         
+    'cpf'      => '123653478',
+    'nome'     => 'Marcos Cesar',
+    'idade'    => '21',
+    'endereco' => 'rua teste 157',
+    'telefone' => '1177664423',
+    'tipo'     => 'fisica',
+    'grau'     => '6'           
     ),
 
-    '5' => array (    
-    'id'  => '6',         
-    'cpf'  => '1104023405',
-    'nome' => 'Francisco',
-    'idade' => '22',
+    '7'        => array (    
+    'id'       => '8',         
+    'cpf'      => '1104023405',
+    'nome'     => 'Francisco',
+    'idade'    => '22',
     'endereco' => 'rua teste 155',
-    'telefone' => '1177664422'
+    'telefone' => '1167834777',
+    'tipo'     => 'fisica',
+    'grau'     => '6'           
     ),
 
-    '6' => array (    
-    'id'  => '7', 
-    'cpf'  => '10004023405',
-    'nome' => 'Clarice',
-    'idade' => '24',
-    'endereco' => 'rua teste 154',
-    'telefone' => '1177664455'
+    '8'        => array (    
+    'id'       => '9',         
+    'cpf'      => '1104023405',
+    'nome'     => 'Francisco',
+    'idade'    => '22',
+    'endereco' => 'rua teste 155',
+    'telefone' => '1167834777',
+    'tipo'     => 'fisica',
+    'grau'     => '6'           
     ),
 
-    '7' => array (    
-    'id'  => '8',         
-    'cpf'  => '12344023405',
-    'nome' => 'Natanael',
-    'idade' => '25',
-    'endereco' => 'rua teste 153',
-    'telefone' => '1988774455'
-    ),
-
-    '8' => array (    
-    'id'  => '9',         
-    'cpf'  => '19874023405',
-    'nome' => 'Fernanda',
-    'idade' => '26',
-    'endereco' => 'rua teste 152',
-    'telefone' => '1998774477'
-    ),
-
-    '9' => array (    
-    'id'  => '10', 
-    'cpf'  => '14994023405',
-    'nome' => 'Marcela',
-    'idade' => '27',
-    'endereco' => 'rua teste 151',
-    'telefone' => '1998774466'
-    ),
-
-    '10' => array (    
-    'id'  => '11',         
-    'cpf'  => '11234023405',
-    'nome' => 'Cleiton',
-    'idade' => '28',
-    'endereco' => 'anchieta 12',
-    'telefone' => '1998774455'
+    '9'        => array (    
+    'id'       => '10',         
+    'cpf'      => '1104023405',
+    'nome'     => 'Francisco',
+    'idade'    => '22',
+    'endereco' => 'rua teste 155',
+    'telefone' => '1167834777',
+    'tipo'     => 'fisica',
+    'grau'     => '6'           
     )
     
 );
@@ -115,11 +128,32 @@ if (isset($_GET['indice'])) {
 if (isset($_GET['ordem'])) {
     
     $ordem = $_GET['ordem'];
-    $dados = orderna_array($ordem, $dados);
-    
+    $dados = orderna_array($ordem, $dados);    
 }
 
+foreach ($dados as $key => $value) {
 
+    $Cliente = new Cliente();    
+    
+    if ($value['tipo'] == 'juridica') {        
+        $Cliente->setCnpj($value['cnpj']);          
+    } else {
+        $Cliente->setCpf($value['cpf']);
+    }
+
+    $Cliente->setId($value['id']);
+    $Cliente->setGrau($value['grau']);
+    $Cliente->setIdade($value['idade']);
+    $Cliente->setNome($value['nome']);
+    $Cliente->setTelefone($value['telefone']);
+    $Cliente->setTipo($value['tipo']);    
+    
+    $id       = $Cliente->getId();
+    $grau     = $Cliente->getGrau();
+    $idade    = $Cliente->getIdade();
+    $nome     = $Cliente->getNome();
+    $telefone = $Cliente->getTelefone();
+    $tipo     = $Cliente->getTipo(); 
 
 ?>
     
@@ -139,21 +173,27 @@ if (isset($_GET['ordem'])) {
             </tr>
         </thead>
         <tbody>            
-            <?php            
-            for ($x=0; $x<=10; $x++) {
-            ?>
-                <tr>
-                    <td><?php echo $dados[$x]['id']; ?></a></td>
-                    <td><?php echo $dados[$x]['cpf']; ?></td>                                        
-                    <td><a href="listagem.php?indice=<?php echo $dados[$x]['id']-1; ?>"><?php echo $dados[$x]['nome']; ?></a></td>
-                    <td><?php echo $dados[$x]['idade']; ?></td>                    
-                    <td><?php echo $dados[$x]['endereco']; ?></td>                                        
-                    <td><?php echo $dados[$x]['telefone']; ?></td>                                        
-<!--                    <td>
-                        <a href=""><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href=""><span class="glyphicon glyphicon-trash"></span></a>
-                        <a href=""><span class="glyphicon glyphicon-plus"></span></a>
-                    </td>-->
+            <tr>
+                <td><?php echo $value['id']; ?></a></td>
+                <?php                
+                if ($value['tipo'] === 'juridica') {        
+                    $cnpj     = $Cliente->getCnpj();
+                    ?>
+                    <td><?php echo $cnpj; ?></td>
+                    <?php
+
+                } else {
+                    $cpf      = $Cliente->getCpf();
+                    ?>
+                    <td><?php echo $cpf; ?></td>
+                    <?php
+                }                       
+                ?>
+                <td><?php echo $value[$x]['cpf']; ?></td>                                        
+                <td><a href="listagem.php?indice=<?php echo $value[$x]['id']-1; ?>"><?php echo $value[$x]['nome']; ?></a></td>
+                <td><?php echo $value[$x]['idade']; ?></td>                    
+                <td><?php echo $value[$x]['endereco']; ?></td>                                        
+                <td><?php echo $value[$x]['telefone']; ?></td>                                        
                 </tr>
             <?php            
             }
@@ -166,6 +206,7 @@ if (isset($_GET['ordem'])) {
 </html>
 
 <?php
+
 
 function orderna_array($ordem, $dados) {
     
@@ -230,3 +271,30 @@ function showPessoa($dados, $indice) {
 <?php
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

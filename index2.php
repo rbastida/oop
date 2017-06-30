@@ -1,109 +1,73 @@
 <?php
 require_once './Interfaces/EnderecoCobrancaInterface.php';
 require_once './Interfaces/GrauImportanciaInterface.php';
+require_once './Cliente.php';
+require_once './ClientePF.php';
+require_once './ClientePJ.php';
+require_once './DadosClientes.php';
 
-//$tenis = new Tenis();
+
+$dados = DadosClientes::$clientes;
+
+print_r($dados);
+
+
+
+
+
+//foreach ($dados as $key => $value) {
 //
-//if ($tenis instanceof Produto) {
+//    $Cliente = new Cliente();    
 //    
-//    echo "e um tipo de tenis";
-//} else {
-//    echo "n e um tipo de tenis";
-// }
-
-
-
-$dados = array (
-    
-    '0' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Wesley',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-    
-    '1' => array (    
-    'cpf'  => '12004323405',
-    'nome' => 'Ricardo',
-    'idade' => '33',
-    'endereco' => 'anchieta 42',
-    'telefone' => '1998734466'
-    ),
-
-    '2' => array (    
-    'cpf'  => '16004323405',
-    'nome' => 'Anderson',
-    'idade' => '19',
-    'endereco' => 'afonso marcondes 132',
-    'telefone' => '1997634544'
-    ),
-
-    '3' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Silva',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-
-    '4' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Marcos',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-
-    '5' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Francisco',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-
-    '6' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Clarice',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-
-    '7' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Natanael',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-
-    '8' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Fernanda',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-
-    '9' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Marcela',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-
-    '10' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Cleiton',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    )
-    
-);
-
-$Pessoa = new PessoaFisica();
-
+//    if ($value['tipo'] == 'juridica') {        
+//        $Cliente->setCnpj($value['cnpj']);          
+//    } else {
+//        $Cliente->setCpf($value['cpf']);
+//    }
+//
+//    $Cliente->setId($value['id']);
+//    $Cliente->setGrau($value['grau']);
+//    $Cliente->setIdade($value['idade']);
+//    $Cliente->setNome($value['nome']);
+//    $Cliente->setTelefone($value['telefone']);
+//    $Cliente->setTipo($value['tipo']);    
+//    
+//    $id       = $Cliente->getId();
+//    $grau     = $Cliente->getGrau();
+//    $idade    = $Cliente->getIdade();
+//    $nome     = $Cliente->getNome();
+//    $telefone = $Cliente->getTelefone();
+//    $tipo     = $Cliente->getTipo();     
+//    
+//    echo 'id='.$id.'<br>';
+//    echo 'grau='.$grau.'<br>';
+//    echo 'idade='.$idade.'<br>';
+//    echo 'nome='.$nome.'<br>';
+//    echo 'telefone='.$telefone.'<br>';
+//    echo 'tipo='.$tipo.'<br>';
+//
+//    if ($value['tipo'] == 'juridica') {        
+//        $cnpj     = $Cliente->getCnpj();
+//        echo 'cnpj='.$cnpj.'<br>';        
+//    } else {
+//        $cpf      = $Cliente->getCpf();
+//        echo 'cpf='.$cpf.'<br>';        
+//    }       
+//    
+//    echo '<br><br>';
+//    
+//   
+//
+//    
+//}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//$Pessoa = new PessoaFisica();
+//

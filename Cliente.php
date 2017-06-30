@@ -1,57 +1,72 @@
 <?php
 
 class Cliente {
-
-    private $cpf;
-    private $cnpj;
-    private $nome;
-    private $idade;
-    private $telefone;
-    private $grau;
     
-    function getCpf() {
+    protected $id;    
+    protected $cpf;
+    protected $nome;
+    protected $idade;
+    protected $telefone;
+    protected $enderecoCobranca;
+    protected $grau;
+    
+    public function __construct($id, $cpf, $nome, $idade, $telefone, $enderecoCobranca, $grau) {
+        
+        $this->id       = $id;
+        $this->cpf      = $cpf;
+        $this->nome     = $nome;
+        $this->idade    = $idade;
+        $this->telefone = $telefone;
+        $this->enderecoCobranca = $enderecoCobranca;
+        $this->grau     = $grau;        
+        
+        return $this;
+        
+    }
+    
+    public function getId() {
+        return $this->id;
+    }
+        
+    public function getCpf() {
         return $this->cpf;
     }
 
-    function getCnpj() {
-        return $this->cnpj;
-    }
-
-    function getNome() {
+    public function getNome() {
         return $this->nome;
     }
 
-    function getIdade() {
+    public function getIdade() {
         return $this->idade;
     }
 
-    function getTelefone() {
+    public function getTelefone() {
         return $this->telefone;
     }
-
-    function setCpf($cpf) {
+    
+    public function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+    
+    public function setCpf($cpf) {
         $this->cpf = $cpf;
         return $this;
     }
 
-    function setCnpj($cnpj) {
-        $this->cnpj = $cnpj;
-        return $this;
-    }
-
-    function setNome($nome) {
+    public function setNome($nome) {
         $this->nome = $nome;
         return $this;
     }
 
-    function setIdade($idade) {
+    public function setIdade($idade) {
         $this->idade = $idade;
         return $this;
     }
 
-    function setTelefone($telefone) {
+    public function setTelefone($telefone) {
         $this->telefone = $telefone;
         return $this;
     }
-
+    
 }
