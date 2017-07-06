@@ -2,23 +2,25 @@
 
 class Cliente {
     
-    protected $id;    
-    protected $cpf;
-    protected $nome;
-    protected $idade;
-    protected $telefone;
-    protected $enderecoCobranca;
-    protected $grau;
-    
+    private $id;    
+    private $cpf;
+    private $nome;
+    private $idade;
+    private $telefone;
+    private $enderecoCobranca;
+    private $grau;
+    private $tipo;
+
     public function __construct($id, $cpf, $nome, $idade, $telefone, $enderecoCobranca, $grau) {
         
-        $this->id       = $id;
-        $this->cpf      = $cpf;
-        $this->nome     = $nome;
-        $this->idade    = $idade;
-        $this->telefone = $telefone;
+        $this->id               = $id;
+        $this->cpf              = $cpf;
+        $this->nome             = $nome;
+        $this->idade            = $idade;
+        $this->telefone         = $telefone;
         $this->enderecoCobranca = $enderecoCobranca;
-        $this->grau     = $grau;        
+        $this->grau             = $grau;        
+        $this->tipo             = $tipo;
         
         return $this;
         
@@ -44,6 +46,10 @@ class Cliente {
         return $this->telefone;
     }
     
+    public function getTipo() {
+        return $this->tipo;
+    }
+
     public function setId($id) {
         $this->id = $id;
         return $this;
@@ -67,6 +73,25 @@ class Cliente {
     public function setTelefone($telefone) {
         $this->telefone = $telefone;
         return $this;
+    }
+    
+    public function setTipo($tipo) {
+        $this->tipo = $tipo;
+        return $this;
+    }      
+    
+    public function isPessoaFisica(){
+        if($this->getTipo() == 1){
+            return true;
+        }
+        return false;
+    }
+
+    public function isPessoaJuridica(){
+        if($this->getTipo() == 2){
+            return true;
+        }
+        return false;
     }
     
 }

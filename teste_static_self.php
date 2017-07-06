@@ -25,6 +25,6 @@ class B extends A {
 }
 
 B::test();  // Isso vai sair como "A", o nome da classe mãe 
-B::test2(); // Já esse aqui vai sair "B", o nome da classe filha  
 
+B::test2(); // Já esse aqui vai sair "B", o nome da classe filha  
 ?>

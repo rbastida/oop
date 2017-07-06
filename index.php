@@ -1,122 +1,71 @@
 <?php
-//require_once 'pessoa.php';
-//
-//$pessoa1 = new Pessoa($nome, $idade);
-//$pessoa1->nome = "Wesley";
-//$pessoa1->idade = 30;
-//
-//$pessoa2 = new Pessoa();
-//$pessoa2->nome = "Maria";
-//$pessoa2->idade = 20;
-//
-//// echo $pessoa1->nome;
-//echo $pessoa1->correr(50);
+require_once './Interfaces/EnderecoCobrancaInterface.php';
+require_once './Interfaces/GrauImportanciaInterface.php';
+require_once './Cliente.php';
+require_once './ClientePF.php';
+require_once './ClientePJ.php';
+require_once './DadosClientes.php';
+require_once './i_bootstrap.php';
 
 
-//require_once './produto.php';
-//require_once './pessoa.php';
-//require_once './tenis.php';
-//
-//$tenis = new Tenis();
-//
-//if ($tenis instanceof Produto) {
-//    
-//    echo "e um tipo de tenis";
-//} else {
-//    echo "n e um tipo de tenis";
-// }
-
-//$computador1 = new ComputadorDesktop();
-//$computador1->getTela();
-
-$teste = array (
+    $banco = new DadosClientes();
     
-    '0' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Wesley',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
-    
-    '1' => array (    
-    'cpf'  => '12004323405',
-    'nome' => 'Ricardo',
-    'idade' => '33',
-    'endereco' => 'anchieta 42',
-    'telefone' => '1998734466'
-    ),
+    if(isset($_GET['order'])){
+        $clientes = $banco->getClientes($_GET['order']);
+    }else{
+        $clientes = $banco->getClientes();
+    }
 
-    '2' => array (    
-    'cpf'  => '16004323405',
-    'nome' => 'Anderson',
-    'idade' => '19',
-    'endereco' => 'afonso marcondes 132',
-    'telefone' => '1997634544'
-    ),
+//    print_r($clientes);
 
-    '3' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Silva',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
+?>
 
-    '4' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Marcos',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
 
-    '5' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Francisco',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
 
-    '6' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Clarice',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
 
-    '7' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Natanael',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
 
-    '8' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Fernanda',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
+<body>
+<div class="container">
 
-    '9' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Marcela',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    ),
+    <div class="jumbotron">
+        <h1>Gestão de Clientes</h1>
+        <p>Exercício do Curso de PHP OO da School of Net</p>
+    </div>
 
-    '10' => array (    
-    'cpf'  => '15004023405',
-    'nome' => 'Cleiton',
-    'idade' => '23',
-    'endereco' => 'anchieta 200',
-    'telefone' => '1997605544'
-    )
-    
-);
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Ordenar
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="?order=ASC">Crescente</a></li>
+                <li><a href="?order=DESC">Decrescente</a></li>
+            </ul>
+        </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>CPF</td>
+            <td>Endereço</td>
+            <td>Tipo</td>
+            <td>Ações</td>
+        </thead>
+        <?php foreach($clientes as $cliente): ?>
+        
+            <tr>
+                <td><?php echo $cliente->getId() ; ?></td>
+                <td><?php echo $cliente->getNome() ; ?></td>
+                <td><?php echo $cliente->getCPF() ; ?></td>
+                <td><?php echo $cliente->getEnderecoCobranca() ; ?></td>
+                <td><?php echo ($cliente->isPessoaFisica()) ? "Pessoa Física" : "Pessoa Juridica"; ?></td>
+                <td><a href="<?php echo 'cliente_individual.php?id='.$cliente->getId() ?>" class="btn btn-primary" title="Visualizar">
+                        <span class="glyphicon glyphicon-new-window"></span>
+                    </a>
+                </td>
+            </tr>
+
+        <?php endforeach; ?>
+    </table>
+</div>

@@ -1,5 +1,7 @@
 <?php
 require_once './Cliente.php';
+require_once './Interfaces/EnderecoCobrancaInterface.php';
+require_once './Interfaces/GrauImportanciaInterface.php';
 
 class ClientePF extends Cliente implements EnderecoCobrancaInterface, GrauImportanciaInterface {
     
@@ -9,7 +11,7 @@ class ClientePF extends Cliente implements EnderecoCobrancaInterface, GrauImport
     public function __construct($id, $cpf, $nome, $idade, $telefone, $enderecoCobranca, $grau) {
          
         parent::__construct($id, $cpf, $nome, $idade, $telefone, $enderecoCobranca, $grau);
-        
+        $this->tipo = 1;
     }
         
     public function getEnderecoCobranca() {
