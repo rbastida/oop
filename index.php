@@ -1,28 +1,15 @@
 <?php
-require_once './Interfaces/EnderecoCobrancaInterface.php';
-require_once './Interfaces/GrauImportanciaInterface.php';
-require_once './Cliente.php';
-require_once './ClientePF.php';
-require_once './ClientePJ.php';
-require_once './DadosClientes.php';
-require_once './i_bootstrap.php';
+require_once('autoload.php');
 
+$banco = new \DEV\Clientes\Banco\DadosClientes();
 
-    $banco = new DadosClientes();
-    
-    if(isset($_GET['order'])){
-        $clientes = $banco->getClientes($_GET['order']);
-    }else{
-        $clientes = $banco->getClientes();
-    }
-
-//    print_r($clientes);
+if (isset($_GET['order'])) {
+    $clientes = $banco->getClientes($_GET['order']);
+} else {
+    $clientes = $banco->getClientes();
+}
 
 ?>
-
-
-
-
 
 <body>
 <div class="container">

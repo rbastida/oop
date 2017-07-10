@@ -1,16 +1,15 @@
 <?php
+namespace DEV\Conta\Types;
 
-class ContaPremium extends Conta {
+class ContaPremium extends DEV\Conta\ContaAbstract {
     
     public function __construct() {
         $this->saldo += 10;
-        $this->calculoDeposito(4343);
     }
     
     protected function calculoDeposito($valor) {
         
-        $valorNormal = parent::calculoDeposito($valor);
-        return $valorNormal  += 20;
+        return $valor += 20;
     }    
     
 }        

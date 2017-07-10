@@ -1,9 +1,6 @@
 <?php
-require_once './Cliente.php';
-require_once './ClientePF.php';
-require_once './ClientePJ.php';
-require_once './Interfaces/EnderecoCobrancaInterface.php';
-require_once './Interfaces/GrauImportanciaInterface.php';
+namespace DEV\Clientes;
+namespace DEV\Clientes\Interfaces; 
 
 class DadosClientes {
 
