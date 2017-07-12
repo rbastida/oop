@@ -1,7 +1,7 @@
 <?php
 require_once('autoload.php');
 
-$banco = new \DEV\Clientes\Banco\DadosClientes();
+$banco = new DEV\Clientes\Banco\DadosClientes();
 
 if (isset($_GET['order'])) {
     $clientes = $banco->getClientes($_GET['order']);

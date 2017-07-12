@@ -1,5 +1,5 @@
 <?php
-namespace DEV\Clientes;
+namespace \DEV\Clientes\Interfaces;
 
 interface ClienteInterface {
 

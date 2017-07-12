@@ -1,6 +1,5 @@
 <?php
 namespace DEV\Clientes;
-namespace DEV\Clientes\Interfaces;
 
 use DEV\Clientes\ClienteAbstract;
 

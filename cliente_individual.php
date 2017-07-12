@@ -1,11 +1,14 @@
 <?php
-//require_once('autoload.php');
+require_once('autoload.php');
+$banco = new \DEV\Clientes\Banco\DadosClientes();
 
-namespace DEV\Clientes;
-namespace DEV\Clientes\Interfaces;
-namespace DEV\Clientes\Banco;
+//namespace DEV\Clientes;
+//namespace DEV\Clientes\Interfaces;
+//namespace DEV\Clientes\Banco;
 
-$banco = new DadosClientes();
+// $banco = new DadosClientes();
+
+
 $cliente = $banco->getCliente($_GET['id']);
 ?>
 

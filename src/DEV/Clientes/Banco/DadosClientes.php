@@ -1,6 +1,8 @@
 <?php
-namespace DEV\Clientes;
-namespace DEV\Clientes\Interfaces; 
+namespace \DEV\Clientes\Banco;
+
+use DEV\Clientes\ClientePF;
+use DEV\Clientes\ClientePJ;
 
 class DadosClientes {
 
