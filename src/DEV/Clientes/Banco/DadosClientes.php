@@ -1,5 +1,5 @@
 <?php
-namespace \DEV\Clientes\Banco;
+namespace DEV\Clientes\Banco;
 
 use DEV\Clientes\ClientePF;
 use DEV\Clientes\ClientePJ;

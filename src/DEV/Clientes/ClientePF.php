@@ -1,7 +1,7 @@
 <?php
 namespace DEV\Clientes;
 
-use DEV\Clientes\ClienteAbstract;
+use DEV\Clientes\Interfaces\ClienteInterface;
 
 class ClientePF extends ClienteAbstract implements ClienteInterface {
     

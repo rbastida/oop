@@ -1,6 +1,8 @@
 <?php
 namespace DEV\Clientes;
 
+use DEV\Clientes\Interfaces\ClienteInterface;
+
 abstract class ClienteAbstract implements ClienteInterface {
 
     private $id;
