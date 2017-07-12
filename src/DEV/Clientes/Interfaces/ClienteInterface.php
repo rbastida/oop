@@ -9,5 +9,5 @@ interface ClienteInterface {
 
     public function setEnderecoCobranca($endereco);
 
-    public function getEnderecoCobranca($grau);
+    public function getEnderecoCobranca();
 }
