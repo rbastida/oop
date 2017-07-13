@@ -1,5 +1,5 @@
 <?php
-namespace \DEV\Clientes\Interfaces;
+namespace DEV\Clientes\Interfaces;
 
 interface ClienteInterface {
 
@@ -9,5 +9,5 @@ interface ClienteInterface {
 
     public function setEnderecoCobranca($endereco);
 
-    public function getEnderecoCobranca($grau);
+    public function getEnderecoCobranca();
 }
