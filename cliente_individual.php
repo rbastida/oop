@@ -1,5 +1,7 @@
 <?php
 require_once('autoload.php');
+require_once('./i_bootstrap.php');
+
 $banco = new \DEV\Clientes\Banco\DadosClientes();
 
 //namespace DEV\Clientes;
