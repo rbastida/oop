@@ -1,17 +1,10 @@
 <?php
-require_once('autoload.php');
-require_once('./i_bootstrap.php');
+require_once 'autoload.php';
+require_once './i_bootstrap.php';
+require_once './conn.php';
 
-$banco = new \DEV\Clientes\Banco\DadosClientes();
+$cliente = (new DEV\Cliente\Model\ClienteModel($conexao))->find($_GET['id']);
 
-//namespace DEV\Clientes;
-//namespace DEV\Clientes\Interfaces;
-//namespace DEV\Clientes\Banco;
-
-// $banco = new DadosClientes();
-
-
-$cliente = $banco->getCliente($_GET['id']);
 ?>
 
 <div class="container">
